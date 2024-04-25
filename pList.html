@@ -84,6 +84,7 @@
                 <div class = "image-box">
                     <center>
                         <img id = "image">
+                        <h3 id = "text"></h3>
                     </center>
                 </div>
             </div>
@@ -139,6 +140,7 @@
                     var photoData = data.images[13];
                 }
                 document.getElementById("image").src = photoData.url;
+                document.getElementById("text").innerHTML= photoData.name;
                 document.querySelector(".image-box").style.display = 'block';
             })
         }
