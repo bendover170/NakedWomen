@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- latest jQuery library -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <title>Naked Women</title>
+
+    <style>
+        .selections {
+            color: white;
+            font-size: 1.5em;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn-margin {
+            margin-top: 10px;
+        }
+
+        .image-box {
+            color: white;
+            font-size: 1.5em;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 79vh;
+            min-height: 79vh;
+            height: auto;
+            object-fit: contain;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class = "navbar navbar-expand-lg navbar-dark bg-info">
+        <div class = "container">
+            <div class = "navbar-nav">
+                <a class = "nav-link" href = "home.html">Home</a>
+                <a class = "nav-link active" href = "pList.html">List of Naked Women</a>
+            </div>
+        </div>
+    </nav>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-12 col-md-4 col-lg-3">
+                <div class = "selections">
+                    <p class = "lead">Click one of the buttons below to choose your naked woman!</p>
+                    <button onclick = "displayImage('0')" class = "btn btn-danger btn-lg btn-margin">Brook Power</button>
+                    <button onclick = "displayImage('1')" class = "btn btn-primary btn-lg btn-margin">Claire Sinclair</button>
+                    <button onclick = "displayImage('2')" class = "btn btn-warning btn-lg btn-margin">Dani Mathers</button>
+                    <button onclick = "displayImage('3')" class = "btn btn-light btn-lg btn-margin">Denise Richards</button>
+                    <button onclick = "displayImage('4')" class = "btn btn-info btn-lg btn-margin">Eugena Washington</button>
+                    <button onclick = "displayImage('5')" class = "btn btn-danger btn-lg btn-margin">Jaclyn Swedberg</button>
+                    <button onclick = "displayImage('6')" class = "btn btn-primary btn-lg btn-margin">Jordan Emanuel</button>
+                    <button onclick = "displayImage('7')" class = "btn btn-warning btn-lg btn-margin">Kennedy Summers</button>
+                    <button onclick = "displayImage('8')" class = "btn btn-light btn-lg btn-margin">Kim Kardashian</button>
+                    <button onclick = "displayImage('9')" class = "btn btn-info btn-lg btn-margin">Lindsay Lohan</button>
+                    <button onclick = "displayImage('10')" class = "btn btn-danger btn-lg btn-margin">Lois Griffin</button>
+                    <button onclick = "displayImage('11')" class = "btn btn-primary btn-lg btn-margin">Marge Simpson</button>
+                    <button onclick = "displayImage('12')" class = "btn btn-light btn-lg btn-margin">Marilyn Monroe</button>
+                    <button onclick = "displayImage('13')" class = "btn btn-info btn-lg btn-margin">Nina Daniele</button>
+                </div>
+            </div>
+            <div class = "col-12 col-md-8 col-lg-9">
+                <div class = "image-box">
+                    <center>
+                        <img id = "image">
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function displayImage(keyword){
+            fetch('https://bendover170.github.io/list.json', {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(keyword == '0'){
+                    var photoData = data.images[0];
+                }
+                else if(keyword == '1'){
+                    var photoData = data.images[1];
+                }
+                else if(keyword == '2'){
+                    var photoData = data.images[2];
+                }
+                else if(keyword == '3'){
+                    var photoData = data.images[3];
+                }
+                else if(keyword == '4'){
+                    var photoData = data.images[4];
+                }
+                else if(keyword == '5'){
+                    var photoData = data.images[5];
+                }
+                else if(keyword == '6'){
+                    var photoData = data.images[6];
+                }
+                else if(keyword == '7'){
+                    var photoData = data.images[7];
+                }
+                else if(keyword == '8'){
+                    var photoData = data.images[8];
+                }
+                else if(keyword == '9'){
+                    var photoData = data.images[9];
+                }
+                else if(keyword == '10'){
+                    var photoData = data.images[10];
+                }
+                else if(keyword == '11'){
+                    var photoData = data.images[11];
+                }
+                else if(keyword == '12'){
+                    var photoData = data.images[12];
+                }
+                else if(keyword == '13'){
+                    var photoData = data.images[13];
+                }
+                document.getElementById("image").src = photoData.url;
+                document.querySelector(".image-box").style.display = 'block';
+            })
+        }
+    </script>
+</body>
+</html>
