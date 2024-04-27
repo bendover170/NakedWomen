@@ -77,7 +77,7 @@
                     <div class = "random-pussy">
                         <center>
                             <p class = "lead">Click the button below to generate a random image of a naked woman!</p>
-                            <button onclick = "displayRandomImage()" class = "btn btn-danger btn-lg">Generate pussy image now!</button>
+                            <button onclick = "displayRandomImage()" class = "btn btn-danger btn-lg">Generate nude image now!</button>
                         </center>
                     </div>
                 </div>
@@ -104,7 +104,11 @@
             .then(response => response.json())
             .then(data => {
                 const photoData = selectRandomImage(data);
-                document.getElementById("image").src = photoData.url;
+                const imgElement = document.getElementById("image");
+                imgElement.onload = () => {
+                    document.querySelector(".image-box").scrollIntoView({behavior: "smooth"});
+                };
+                imgElement.src = photoData.url;
                 document.getElementById("text").innerHTML= photoData.name;
                 document.querySelector(".image-box").style.display = 'block';
             })

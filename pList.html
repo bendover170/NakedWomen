@@ -139,7 +139,11 @@
                 else if(keyword == '13'){
                     var photoData = data.images[13];
                 }
-                document.getElementById("image").src = photoData.url;
+                const imgElement = document.getElementById("image");
+                imgElement.onload = () => {
+                    document.querySelector(".image-box").scrollIntoView({behavior: "smooth"});
+                };
+                imgElement.src = photoData.url;
                 document.getElementById("text").innerHTML= photoData.name;
                 document.querySelector(".image-box").style.display = 'block';
             })
